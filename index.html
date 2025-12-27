@@ -1,0 +1,986 @@
+<!-- 
+  AlignPro Vibra™ - Landing Page de Alta Conversión
+  Corrector de Postura Inteligente con Vibración
+  Para Shopify - NovaMarket Colombia
+-->
+
+<style>
+  /* ========== VARIABLES Y RESET ========== */
+  .apv-landing * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .apv-landing {
+    --primary: #00b894;
+    --primary-dark: #00856f;
+    --primary-light: #55efc4;
+    --secondary: #0984e3;
+    --accent: #e17055;
+    --danger: #d63031;
+    --success: #00b894;
+    --warning: #fdcb6e;
+    --dark: #2d3436;
+    --gray: #636e72;
+    --light: #dfe6e9;
+    --white: #ffffff;
+    --gradient-primary: linear-gradient(135deg, #00b894 0%, #0984e3 100%);
+    --gradient-cta: linear-gradient(135deg, #00b894 0%, #00856f 100%);
+    --shadow-sm: 0 2px 8px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 20px rgba(0,0,0,0.15);
+    --shadow-lg: 0 8px 40px rgba(0,0,0,0.2);
+    --radius: 12px;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    color: var(--dark);
+    line-height: 1.6;
+  }
+
+  /* ========== CONTENEDOR PRINCIPAL ========== */
+  .apv-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+
+  /* ========== HERO SECTION ========== */
+  .apv-hero {
+    background: var(--gradient-primary);
+    padding: 40px 20px;
+    text-align: center;
+    color: var(--white);
+    border-radius: 0 0 30px 30px;
+  }
+
+  .apv-hero-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 14px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255,255,255,0.3);
+  }
+
+  .apv-hero h1 {
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 1.3;
+    margin-bottom: 16px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  }
+
+  .apv-hero-subtitle {
+    font-size: 16px;
+    opacity: 0.95;
+    max-width: 600px;
+    margin: 0 auto 24px;
+    line-height: 1.5;
+  }
+
+  /* ========== CTA BUTTON ========== */
+  .apv-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: var(--white);
+    color: var(--primary-dark);
+    padding: 18px 40px;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: var(--shadow-lg);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+    animation: pulse 2s infinite;
+  }
+
+  .apv-cta:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 12px 40px rgba(0,184,148,0.4);
+  }
+
+  .apv-cta-secondary {
+    background: var(--gradient-cta);
+    color: var(--white);
+    margin: 20px auto;
+    display: flex;
+    max-width: 350px;
+  }
+
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(0,184,148,0.4); }
+    50% { box-shadow: 0 0 0 15px rgba(0,184,148,0); }
+  }
+
+  /* ========== TRUST BADGES ========== */
+  .apv-trust {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    padding: 24px 16px;
+    background: var(--white);
+    margin: -20px 16px 20px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+    position: relative;
+    z-index: 10;
+  }
+
+  .apv-trust-item {
+    text-align: center;
+    padding: 12px 8px;
+  }
+
+  .apv-trust-icon {
+    font-size: 28px;
+    margin-bottom: 8px;
+  }
+
+  .apv-trust-text {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--dark);
+    line-height: 1.3;
+  }
+
+  /* ========== URGENCY BAR ========== */
+  .apv-urgency {
+    background: linear-gradient(90deg, var(--danger), #e84393);
+    color: var(--white);
+    padding: 14px 20px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 14px;
+    margin: 0 16px 24px;
+    border-radius: var(--radius);
+    animation: urgencyPulse 1.5s infinite;
+  }
+
+  @keyframes urgencyPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.85; }
+  }
+
+  /* ========== SECTION TITLES ========== */
+  .apv-section-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--dark);
+    text-align: center;
+    margin: 40px 0 24px;
+    padding: 0 16px;
+  }
+
+  .apv-section-title span {
+    color: var(--primary);
+  }
+
+  /* ========== BENEFIT CARDS (AIDA) ========== */
+  .apv-benefits {
+    padding: 0 16px;
+  }
+
+  .apv-benefit-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 24px;
+    margin-bottom: 16px;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--primary);
+    transition: transform 0.3s ease;
+  }
+
+  .apv-benefit-card:hover {
+    transform: translateX(5px);
+  }
+
+  .apv-benefit-card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 10px;
+  }
+
+  .apv-benefit-card p {
+    font-size: 15px;
+    color: var(--gray);
+    line-height: 1.6;
+  }
+
+  /* ========== BULLET POINTS ========== */
+  .apv-bullets {
+    padding: 0 16px;
+    margin: 30px 0;
+  }
+
+  .apv-bullet {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 16px;
+    background: var(--white);
+    border-radius: var(--radius);
+    margin-bottom: 12px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .apv-bullet-icon {
+    font-size: 24px;
+    flex-shrink: 0;
+  }
+
+  .apv-bullet-text {
+    font-size: 15px;
+    color: var(--dark);
+  }
+
+  .apv-bullet-text strong {
+    color: var(--primary-dark);
+  }
+
+  /* ========== COMPARISON TABLE ========== */
+  .apv-comparison {
+    padding: 0 16px;
+    margin: 30px 0;
+    overflow-x: auto;
+  }
+
+  .apv-comparison table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+  }
+
+  .apv-comparison th {
+    background: var(--gradient-primary);
+    color: var(--white);
+    padding: 16px 12px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .apv-comparison td {
+    padding: 14px 12px;
+    text-align: center;
+    border-bottom: 1px solid var(--light);
+    font-size: 14px;
+  }
+
+  .apv-comparison tr:last-child td {
+    border-bottom: none;
+  }
+
+  .apv-comparison td:first-child {
+    text-align: left;
+    font-weight: 500;
+  }
+
+  .apv-check {
+    color: var(--success);
+    font-size: 20px;
+  }
+
+  .apv-cross {
+    color: var(--danger);
+    font-size: 20px;
+  }
+
+  /* ========== SPECS ========== */
+  .apv-specs {
+    padding: 0 16px;
+    margin: 30px 0;
+  }
+
+  .apv-specs-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .apv-spec-item {
+    background: var(--white);
+    padding: 16px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .apv-spec-label {
+    font-size: 12px;
+    color: var(--gray);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .apv-spec-value {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--dark);
+    margin-top: 4px;
+  }
+
+  /* ========== REVIEWS ========== */
+  .apv-reviews {
+    padding: 0 16px;
+    margin: 30px 0;
+  }
+
+  .apv-review-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 20px;
+    margin-bottom: 16px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .apv-review-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .apv-review-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--gradient-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-weight: 700;
+    font-size: 18px;
+  }
+
+  .apv-review-info h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--dark);
+  }
+
+  .apv-review-info span {
+    font-size: 12px;
+    color: var(--gray);
+  }
+
+  .apv-review-stars {
+    color: #f1c40f;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  .apv-review-text {
+    font-size: 14px;
+    color: var(--gray);
+    line-height: 1.5;
+  }
+
+  .apv-review-verified {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    color: var(--success);
+    margin-top: 10px;
+  }
+
+  /* ========== FAQ ========== */
+  .apv-faq {
+    padding: 0 16px;
+    margin: 30px 0;
+  }
+
+  .apv-faq-item {
+    background: var(--white);
+    border-radius: var(--radius);
+    margin-bottom: 12px;
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+  }
+
+  .apv-faq-question {
+    padding: 18px 20px;
+    font-weight: 600;
+    color: var(--dark);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.3s;
+  }
+
+  .apv-faq-question:hover {
+    background: var(--light);
+  }
+
+  .apv-faq-answer {
+    padding: 0 20px 18px;
+    font-size: 14px;
+    color: var(--gray);
+    line-height: 1.6;
+  }
+
+  /* ========== PRICING ========== */
+  .apv-pricing {
+    background: var(--gradient-primary);
+    padding: 40px 20px;
+    text-align: center;
+    color: var(--white);
+    margin: 30px 0 0;
+  }
+
+  .apv-price-original {
+    font-size: 24px;
+    text-decoration: line-through;
+    opacity: 0.7;
+  }
+
+  .apv-price-current {
+    font-size: 48px;
+    font-weight: 800;
+    margin: 10px 0;
+  }
+
+  .apv-price-discount {
+    display: inline-block;
+    background: var(--danger);
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+
+  .apv-price-includes {
+    font-size: 14px;
+    opacity: 0.9;
+    margin-top: 16px;
+  }
+
+  /* ========== FOOTER ========== */
+  .apv-footer {
+    background: var(--dark);
+    color: var(--white);
+    padding: 30px 20px;
+    text-align: center;
+  }
+
+  .apv-footer-brand {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .apv-footer-text {
+    font-size: 13px;
+    opacity: 0.7;
+  }
+
+  /* ========== RESPONSIVE ========== */
+  @media (max-width: 600px) {
+    .apv-hero h1 {
+      font-size: 24px;
+    }
+    
+    .apv-trust {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+    
+    .apv-trust-text {
+      font-size: 10px;
+    }
+    
+    .apv-specs-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .apv-cta {
+      padding: 16px 30px;
+      font-size: 16px;
+    }
+    
+    .apv-price-current {
+      font-size: 40px;
+    }
+  }
+</style>
+
+<div class="apv-landing">
+  
+  <!-- HERO SECTION -->
+  <section class="apv-hero">
+    <div class="apv-hero-badge">🇨🇴 Envío a toda Colombia</div>
+    <h1>¿TU ESPALDA PAGA EL PRECIO DE HORAS EN MALA POSTURA? 🔴</h1>
+    <p class="apv-hero-subtitle">
+      "Imagina corregir tu postura sin esfuerzo. El sensor inteligente detecta cuando te encorvas y vibra suavemente para recordarte. En semanas, tu cerebro aprende a mantener una postura perfecta."
+    </p>
+    <a href="#comprar" class="apv-cta" onclick="scrollToComprar()">🛒 ¡QUIERO EL MÍO AHORA!</a>
+  </section>
+
+  <!-- TRUST BADGES -->
+  <div class="apv-container">
+    <div class="apv-trust">
+      <div class="apv-trust-item">
+        <div class="apv-trust-icon">🚚</div>
+        <div class="apv-trust-text">PAGO AL RECIBIR</div>
+      </div>
+      <div class="apv-trust-item">
+        <div class="apv-trust-icon">✅</div>
+        <div class="apv-trust-text">GARANTÍA 30 DÍAS</div>
+      </div>
+      <div class="apv-trust-item">
+        <div class="apv-trust-icon">⚡</div>
+        <div class="apv-trust-text">ENVÍO 24-48H</div>
+      </div>
+    </div>
+
+    <!-- URGENCY BAR -->
+    <div class="apv-urgency">
+      ⚠️ ¡ÚLTIMAS 47 UNIDADES CON 33% OFF! - La oferta termina pronto
+    </div>
+  </div>
+
+  <!-- BENEFITS AIDA -->
+  <h2 class="apv-section-title">🎯 <span>AlignPro Vibra™</span> Cambiará Tu Vida</h2>
+  
+  <div class="apv-benefits">
+    <div class="apv-benefit-card">
+      <h3>😰 Tu Cuerpo Te Está Pidiendo Ayuda</h3>
+      <p>El dolor de espalda y cuello no es normal. Cada hora en mala postura acelera el desgaste de tu columna. AlignPro Vibra™ actúa antes de que sea demasiado tarde.</p>
+    </div>
+    
+    <div class="apv-benefit-card">
+      <h3>🧠 Tecnología que Entrena tu Cerebro</h3>
+      <p>El sensor inteligente detecta cuando te encorvas más de 25° y vibra suavemente. No te fuerza, te educa. En semanas, tu postura mejora sola.</p>
+    </div>
+    
+    <div class="apv-benefit-card">
+      <h3>💪 Adiós Dolor, Hola Confianza</h3>
+      <p>Una buena postura no solo elimina el dolor: te hace ver más alto, más seguro y más profesional. Siente la diferencia desde el primer día.</p>
+    </div>
+    
+    <div class="apv-benefit-card">
+      <h3>🪶 Tan Ligero que Olvidarás que lo Llevas</h3>
+      <p>Con solo 137g y correas de nailon ultra cómodas, úsalo 8+ horas bajo la ropa sin que nadie lo note. Carga USB para usar por días.</p>
+    </div>
+  </div>
+
+  <!-- CTA INTERMEDIO -->
+  <a href="#comprar" class="apv-cta apv-cta-secondary" onclick="scrollToComprar()">💪 ¡PROTEGE TU ESPALDA HOY!</a>
+
+  <!-- BULLET POINTS -->
+  <h2 class="apv-section-title">✨ ¿Por Qué <span>AlignPro Vibra™</span>?</h2>
+  
+  <div class="apv-bullets">
+    <div class="apv-bullet">
+      <span class="apv-bullet-icon">🎯</span>
+      <span class="apv-bullet-text"><strong>Sensor Inteligente</strong> - Detecta inclinación mayor a 25° en tiempo real</span>
+    </div>
+    <div class="apv-bullet">
+      <span class="apv-bullet-icon">📳</span>
+      <span class="apv-bullet-text"><strong>Vibración Recordatorio</strong> - Te avisa sin sonido para corregir discretamente</span>
+    </div>
+    <div class="apv-bullet">
+      <span class="apv-bullet-icon">👨‍👩‍👧</span>
+      <span class="apv-bullet-text"><strong>Para Toda la Familia</strong> - Ajustable para niños desde 6 años y adultos</span>
+    </div>
+    <div class="apv-bullet">
+      <span class="apv-bullet-icon">💆</span>
+      <span class="apv-bullet-text"><strong>Correas Anti-Presión</strong> - Nailon elástico que no marca ni incomoda</span>
+    </div>
+    <div class="apv-bullet">
+      <span class="apv-bullet-icon">🔋</span>
+      <span class="apv-bullet-text"><strong>Batería Recargable</strong> - USB de larga duración, carga en cualquier lugar</span>
+    </div>
+    <div class="apv-bullet">
+      <span class="apv-bullet-icon">🥷</span>
+      <span class="apv-bullet-text"><strong>Ultra Discreto</strong> - Solo 137g, invisible bajo cualquier ropa</span>
+    </div>
+  </div>
+
+  <!-- COMPARISON TABLE -->
+  <h2 class="apv-section-title">🏆 La <span>Diferencia</span> Está en la Calidad</h2>
+  
+  <div class="apv-comparison">
+    <table>
+      <thead>
+        <tr>
+          <th>Característica</th>
+          <th>AlignPro Vibra™</th>
+          <th>Correctores Comunes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Sensor inteligente de postura</td>
+          <td><span class="apv-check">✓</span></td>
+          <td><span class="apv-cross">✗</span></td>
+        </tr>
+        <tr>
+          <td>Vibración de recordatorio</td>
+          <td><span class="apv-check">✓</span></td>
+          <td><span class="apv-cross">✗</span></td>
+        </tr>
+        <tr>
+          <td>Entrena tu cerebro activamente</td>
+          <td><span class="apv-check">✓</span></td>
+          <td><span class="apv-cross">✗</span></td>
+        </tr>
+        <tr>
+          <td>Batería recargable USB</td>
+          <td><span class="apv-check">✓</span></td>
+          <td><span class="apv-cross">✗</span></td>
+        </tr>
+        <tr>
+          <td>Apto para niños y adultos</td>
+          <td><span class="apv-check">✓</span></td>
+          <td><span class="apv-check">✓</span></td>
+        </tr>
+        <tr>
+          <td>Correas anti-presión</td>
+          <td><span class="apv-check">✓</span></td>
+          <td><span class="apv-cross">✗</span></td>
+        </tr>
+        <tr>
+          <td>Ultra ligero (137g)</td>
+          <td><span class="apv-check">✓</span></td>
+          <td><span class="apv-cross">✗</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- SPECS -->
+  <h2 class="apv-section-title">📐 Especificaciones <span>Técnicas</span></h2>
+  
+  <div class="apv-specs">
+    <div class="apv-specs-grid">
+      <div class="apv-spec-item">
+        <div class="apv-spec-label">Material</div>
+        <div class="apv-spec-value">Poliéster Premium</div>
+      </div>
+      <div class="apv-spec-item">
+        <div class="apv-spec-label">Correas</div>
+        <div class="apv-spec-value">Nailon Elástico</div>
+      </div>
+      <div class="apv-spec-item">
+        <div class="apv-spec-label">Dimensiones</div>
+        <div class="apv-spec-value">13 x 13 cm</div>
+      </div>
+      <div class="apv-spec-item">
+        <div class="apv-spec-label">Peso</div>
+        <div class="apv-spec-value">137 gramos</div>
+      </div>
+      <div class="apv-spec-item">
+        <div class="apv-spec-label">Batería</div>
+        <div class="apv-spec-value">Litio 3.7V 500mAh</div>
+      </div>
+      <div class="apv-spec-item">
+        <div class="apv-spec-label">Carga</div>
+        <div class="apv-spec-value">USB Universal</div>
+      </div>
+      <div class="apv-spec-item">
+        <div class="apv-spec-label">Colores</div>
+        <div class="apv-spec-value">Negro / Gris</div>
+      </div>
+      <div class="apv-spec-item">
+        <div class="apv-spec-label">Detección</div>
+        <div class="apv-spec-value">Ángulo 25°</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA INTERMEDIO 2 -->
+  <a href="#comprar" class="apv-cta apv-cta-secondary" onclick="scrollToComprar()">🎁 OBTENER MI 33% DE DESCUENTO</a>
+
+  <!-- REVIEWS -->
+  <h2 class="apv-section-title">⭐ Lo Que Dicen Nuestros <span>Clientes</span></h2>
+  
+  <div class="apv-reviews">
+    <div class="apv-review-card">
+      <div class="apv-review-header">
+        <div class="apv-review-avatar">MC</div>
+        <div class="apv-review-info">
+          <h4>María Camila Rodríguez</h4>
+          <span>📍 Bogotá, Colombia</span>
+        </div>
+      </div>
+      <div class="apv-review-stars">★★★★★</div>
+      <p class="apv-review-text">"Trabajo 10 horas frente al computador y siempre terminaba con dolor terrible de espalda. Desde que uso el AlignPro Vibra, la vibración me recuerda corregir mi postura. ¡Ya no tengo dolores!"</p>
+      <span class="apv-review-verified">✓ Compra verificada</span>
+    </div>
+
+    <div class="apv-review-card">
+      <div class="apv-review-header">
+        <div class="apv-review-avatar">JA</div>
+        <div class="apv-review-info">
+          <h4>Juan Andrés Martínez</h4>
+          <span>📍 Medellín, Colombia</span>
+        </div>
+      </div>
+      <div class="apv-review-stars">★★★★★</div>
+      <p class="apv-review-text">"Lo compré para mi hijo de 12 años que pasa mucho tiempo con el celular. La vibración le recuerda enderezarse sin que yo tenga que estar detrás de él. Muy recomendado para niños."</p>
+      <span class="apv-review-verified">✓ Compra verificada</span>
+    </div>
+
+    <div class="apv-review-card">
+      <div class="apv-review-header">
+        <div class="apv-review-avatar">LP</div>
+        <div class="apv-review-info">
+          <h4>Laura Patricia Gómez</h4>
+          <span>📍 Cali, Colombia</span>
+        </div>
+      </div>
+      <div class="apv-review-stars">★★★★★</div>
+      <p class="apv-review-text">"Es súper discreto, nadie nota que lo llevo puesto bajo la blusa. La batería dura varios días y la carga USB es muy práctica. El mejor corrector que he probado."</p>
+      <span class="apv-review-verified">✓ Compra verificada</span>
+    </div>
+
+    <div class="apv-review-card">
+      <div class="apv-review-header">
+        <div class="apv-review-avatar">CS</div>
+        <div class="apv-review-info">
+          <h4>Carlos Sebastián López</h4>
+          <span>📍 Barranquilla, Colombia</span>
+        </div>
+      </div>
+      <div class="apv-review-stars">★★★★★</div>
+      <p class="apv-review-text">"Soy ingeniero y paso todo el día sentado. La tecnología del sensor es increíble, detecta cuando me encorvo y vibra inmediatamente. Ya se me está haciendo hábito mantener buena postura."</p>
+      <span class="apv-review-verified">✓ Compra verificada</span>
+    </div>
+
+    <div class="apv-review-card">
+      <div class="apv-review-header">
+        <div class="apv-review-avatar">AT</div>
+        <div class="apv-review-info">
+          <h4>Andrea Torres Mejía</h4>
+          <span>📍 Bucaramanga, Colombia</span>
+        </div>
+      </div>
+      <div class="apv-review-stars">★★★★★</div>
+      <p class="apv-review-text">"Tenía mucho dolor de cuello por la mala postura. Llevó 3 semanas usándolo y la mejora es notable. Las correas son muy cómodas, no marcan ni incomodan para nada."</p>
+      <span class="apv-review-verified">✓ Compra verificada</span>
+    </div>
+
+    <div class="apv-review-card">
+      <div class="apv-review-header">
+        <div class="apv-review-avatar">DR</div>
+        <div class="apv-review-info">
+          <h4>Daniel Ricardo Vargas</h4>
+          <span>📍 Cartagena, Colombia</span>
+        </div>
+      </div>
+      <div class="apv-review-stars">★★★★★</div>
+      <p class="apv-review-text">"Excelente producto, llegó muy rápido y pagué al recibir como decía. La calidad es muy buena y el sensor funciona perfecto. 100% recomendado."</p>
+      <span class="apv-review-verified">✓ Compra verificada</span>
+    </div>
+
+    <div class="apv-review-card">
+      <div class="apv-review-header">
+        <div class="apv-review-avatar">VM</div>
+        <div class="apv-review-info">
+          <h4>Valentina Muñoz Castro</h4>
+          <span>📍 Pereira, Colombia</span>
+        </div>
+      </div>
+      <div class="apv-review-stars">★★★★★</div>
+      <p class="apv-review-text">"Mi mamá sufre de dolores de espalda y le regalé este corrector. Le encantó porque la vibración es suave pero efectiva. Dice que se siente más erguida y con menos dolor."</p>
+      <span class="apv-review-verified">✓ Compra verificada</span>
+    </div>
+
+    <div class="apv-review-card">
+      <div class="apv-review-header">
+        <div class="apv-review-avatar">SH</div>
+        <div class="apv-review-info">
+          <h4>Santiago Hernández Ríos</h4>
+          <span>📍 Manizales, Colombia</span>
+        </div>
+      </div>
+      <div class="apv-review-stars">★★★★★</div>
+      <p class="apv-review-text">"Trabajo en call center y paso 8 horas sentado. Este corrector inteligente cambió mi vida, ya no termino el día destruido. Vale cada peso que pagué."</p>
+      <span class="apv-review-verified">✓ Compra verificada</span>
+    </div>
+
+    <div class="apv-review-card">
+      <div class="apv-review-header">
+        <div class="apv-review-avatar">NC</div>
+        <div class="apv-review-info">
+          <h4>Natalia Carolina Díaz</h4>
+          <span>📍 Ibagué, Colombia</span>
+        </div>
+      </div>
+      <div class="apv-review-stars">★★★★★</div>
+      <p class="apv-review-text">"Lo uso cuando estudio y es genial. La vibración me mantiene alerta y con buena postura. Además es muy ligero, casi no se siente que lo tengo puesto."</p>
+      <span class="apv-review-verified">✓ Compra verificada</span>
+    </div>
+
+    <div class="apv-review-card">
+      <div class="apv-review-header">
+        <div class="apv-review-avatar">FM</div>
+        <div class="apv-review-info">
+          <h4>Felipe Morales Jiménez</h4>
+          <span>📍 Cúcuta, Colombia</span>
+        </div>
+      </div>
+      <div class="apv-review-stars">★★★★★</div>
+      <p class="apv-review-text">"Compré dos, uno para mí y otro para mi esposa. Los dos quedamos encantados. La diferencia con los correctores normales es increíble, este realmente entrena la postura."</p>
+      <span class="apv-review-verified">✓ Compra verificada</span>
+    </div>
+
+    <div class="apv-review-card">
+      <div class="apv-review-header">
+        <div class="apv-review-avatar">IS</div>
+        <div class="apv-review-info">
+          <h4>Isabella Sánchez Ortiz</h4>
+          <span>📍 Villavicencio, Colombia</span>
+        </div>
+      </div>
+      <div class="apv-review-stars">★★★★★</div>
+      <p class="apv-review-text">"Soy profesora y paso mucho tiempo de pie o inclinada. Este corrector me ha ayudado muchísimo a mantener la espalda recta. Lo recargo una vez a la semana y listo."</p>
+      <span class="apv-review-verified">✓ Compra verificada</span>
+    </div>
+
+    <div class="apv-review-card">
+      <div class="apv-review-header">
+        <div class="apv-review-avatar">AM</div>
+        <div class="apv-review-info">
+          <h4>Alejandro Mesa Gutiérrez</h4>
+          <span>📍 Santa Marta, Colombia</span>
+        </div>
+      </div>
+      <div class="apv-review-stars">★★★★★</div>
+      <p class="apv-review-text">"Al principio la vibración me parecía molesta porque vibraba mucho, pero eso significa que mi postura era muy mala. Ahora casi no vibra porque ya aprendí a mantenerme recto. ¡Funciona!"</p>
+      <span class="apv-review-verified">✓ Compra verificada</span>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <h2 class="apv-section-title">❓ Preguntas <span>Frecuentes</span></h2>
+  
+  <div class="apv-faq">
+    <div class="apv-faq-item">
+      <div class="apv-faq-question">
+        ¿Cómo funciona el sensor de postura?
+        <span>▼</span>
+      </div>
+      <div class="apv-faq-answer">
+        El AlignPro Vibra™ tiene un sensor inteligente que detecta la inclinación de tu espalda. Cuando te encorvas más de 25°, el dispositivo vibra suavemente durante unos segundos para recordarte corregir la postura. Esto entrena a tu cerebro para mantener una postura correcta de forma natural.
+      </div>
+    </div>
+
+    <div class="apv-faq-item">
+      <div class="apv-faq-question">
+        ¿Cuánto dura la batería?
+        <span>▼</span>
+      </div>
+      <div class="apv-faq-answer">
+        La batería de litio de 500mAh dura entre 5 a 7 días con uso regular (8 horas diarias). La carga completa toma aproximadamente 2 horas usando cualquier cargador USB estándar.
+      </div>
+    </div>
+
+    <div class="apv-faq-item">
+      <div class="apv-faq-question">
+        ¿Lo pueden usar niños?
+        <span>▼</span>
+      </div>
+      <div class="apv-faq-answer">
+        ¡Sí! El AlignPro Vibra™ es ajustable y apto para niños desde los 6 años hasta adultos. Es especialmente útil para niños que pasan mucho tiempo con tablets, celulares o estudiando, ayudándoles a desarrollar buenos hábitos posturales desde pequeños.
+      </div>
+    </div>
+
+    <div class="apv-faq-item">
+      <div class="apv-faq-question">
+        ¿Se puede usar bajo la ropa?
+        <span>▼</span>
+      </div>
+      <div class="apv-faq-answer">
+        Absolutamente. Con solo 137 gramos y un diseño delgado, el AlignPro Vibra™ es prácticamente invisible bajo cualquier tipo de ropa. Puedes usarlo en la oficina, en el trabajo o en cualquier lugar sin que nadie lo note.
+      </div>
+    </div>
+
+    <div class="apv-faq-item">
+      <div class="apv-faq-question">
+        ¿Cuándo empiezo a ver resultados?
+        <span>▼</span>
+      </div>
+      <div class="apv-faq-answer">
+        La mayoría de usuarios reportan mejoras notables en su postura después de 2 a 3 semanas de uso consistente. Sin embargo, sentirás los beneficios de inmediato al corregir malas posturas que causan dolor y tensión muscular.
+      </div>
+    </div>
+
+    <div class="apv-faq-item">
+      <div class="apv-faq-question">
+        ¿Cómo es el proceso de compra y envío?
+        <span>▼</span>
+      </div>
+      <div class="apv-faq-answer">
+        Es muy simple: completa el formulario con tus datos, y nuestro equipo te contactará para confirmar el pedido. El envío se realiza en 24-48 horas a toda Colombia, y pagas en efectivo al recibir el producto. Sin riesgos para ti.
+      </div>
+    </div>
+  </div>
+
+  <!-- PRICING / CTA FINAL -->
+  <section class="apv-pricing" id="comprar">
+    <div class="apv-container">
+      <h2 style="font-size: 24px; margin-bottom: 20px;">🎯 Empieza Tu 2026 Sin Dolores</h2>
+      <div class="apv-price-original">$89.900</div>
+      <div class="apv-price-current">$59.900</div>
+      <div class="apv-price-discount">🔥 AHORRA 33% - OFERTA LIMITADA</div>
+      
+      <a href="#" class="apv-cta" id="btn-comprar" style="margin-top: 20px;">💵 ¡PAGO AL RECIBIR!</a>
+      
+      <p class="apv-price-includes">
+        ✅ 1 Corrector AlignPro Vibra™ Original<br>
+        ✅ Cable de carga USB incluido<br>
+        ✅ Garantía de 30 días<br>
+        ✅ Envío a toda Colombia
+      </p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="apv-footer">
+    <div class="apv-footer-brand">AlignPro Vibra™</div>
+    <p class="apv-footer-text">© 2024 NovaMarket Colombia. Todos los derechos reservados.</p>
+  </footer>
+
+</div>
+
+<script>
+  // Scroll suave al botón de compra
+  function scrollToComprar() {
+    const element = document.getElementById('comprar');
+    if (element) {
+      element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'center'
+      });
+    }
+  }
+
+  // Conectar todos los CTAs al botón de pago de Shopify
+  document.addEventListener('DOMContentLoaded', function() {
+    const btnComprar = document.getElementById('btn-comprar');
+    
+    // Buscar el botón de Shopify (Releasit COD Form)
+    const shopifyBtn = document.querySelector('.shopify-payment-button button') || 
+                       document.querySelector('[name="add"]') ||
+                       document.querySelector('.product-form__submit');
+    
+    if (btnComprar && shopifyBtn) {
+      btnComprar.addEventListener('click', function(e) {
+        e.preventDefault();
+        shopifyBtn.click();
+      });
+    }
+  });
+</script>
