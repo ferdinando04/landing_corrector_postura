@@ -48,12 +48,36 @@
     display: none !important;
   }
 
-  /* Estilizar el botón de Releasit/Shopify para que se vea premium */
-  .shopify-payment-button button,
-  button[name="add"],
-  .product-form__submit,
-  .rcod-form button[type="submit"],
-  form[action*="/cart/add"] button {
+  /* IMPORTANTE: Restaurar botones de cantidad a su estilo original */
+  .quantity__button,
+  .quantity button,
+  button.quantity__button,
+  [class*="quantity"] button,
+  .product-form__quantity button,
+  input[type="number"]+button,
+  input[type="number"]~button {
+    background: transparent !important;
+    color: inherit !important;
+    border: 1px solid #ccc !important;
+    border-radius: 0 !important;
+    padding: 8px 12px !important;
+    font-size: 16px !important;
+    font-weight: normal !important;
+    box-shadow: none !important;
+    animation: none !important;
+    transform: none !important;
+  }
+
+  /* Estilizar SOLO el botón principal de compra (Releasit/Shopify) */
+  /* Usamos selectores muy específicos para evitar afectar otros botones */
+  .product-form>button[type="submit"],
+  .product-form__submit:not(.quantity__button),
+  .shopify-payment-button__button,
+  .shopify-payment-button>button,
+  button.rcod-submit,
+  .rcod-form>button[type="submit"],
+  form.rcod-form button.btn,
+  [data-product-form]>button[type="submit"]:not([class*="quantity"]) {
     background: linear-gradient(135deg, #00b894 0%, #00856f 100%) !important;
     color: white !important;
     border: none !important;
@@ -64,11 +88,14 @@
     box-shadow: 0 8px 25px rgba(0, 184, 148, 0.4) !important;
     transition: all 0.3s ease !important;
     animation: ctaPulse 2s infinite !important;
+    width: 100%;
+    max-width: 400px;
   }
 
-  .shopify-payment-button button:hover,
-  button[name="add"]:hover,
-  .product-form__submit:hover {
+  .product-form>button[type="submit"]:hover,
+  .product-form__submit:not(.quantity__button):hover,
+  .shopify-payment-button__button:hover,
+  .shopify-payment-button>button:hover {
     transform: translateY(-3px) scale(1.02) !important;
     box-shadow: 0 12px 35px rgba(0, 184, 148, 0.5) !important;
   }
