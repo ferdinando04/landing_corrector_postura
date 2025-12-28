@@ -1,17 +1,17 @@
 <!-- 
-  AlignPro Vibra™ - Landing Page de Alta Conversión v2
+  AlignPro Vibra™ - Landing Page de Alta Conversión v4 LIMPIA
   Corrector de Postura Inteligente con Vibración
   Para Shopify - NovaMarket Colombia
   
-  CAMBIOS v2:
-  - Eliminado footer personalizado (usa el de Shopify)
-  - Eliminada sección de precios (usa el de Shopify)
-  - Mejorado JavaScript para conectar con Releasit COD
-  - Agregado CSS para estilizar el botón de Shopify
+  VERSIÓN LIMPIA:
+  - NO modifica ningún elemento de Shopify
+  - Solo estiliza elementos con clase .apv-*
+  - JavaScript simple que hace scroll al top
 -->
 
 <style>
   /* ========== VARIABLES Y RESET ========== */
+  /* Solo afecta elementos DENTRO de .apv-landing */
   .apv-landing * {
     margin: 0;
     padding: 0;
@@ -40,76 +40,6 @@
     font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
     color: var(--dark);
     line-height: 1.6;
-  }
-
-  /* ========== OCULTAR ELEMENTOS DE SHOPIFY ========== */
-  /* Ocultar título original del producto (ya lo mostramos en el hero) */
-  .product__title {
-    display: none !important;
-  }
-
-  /* IMPORTANTE: Restaurar botones de cantidad a su estilo original */
-  .quantity__button,
-  .quantity button,
-  button.quantity__button,
-  [class*="quantity"] button,
-  .product-form__quantity button,
-  input[type="number"]+button,
-  input[type="number"]~button {
-    background: transparent !important;
-    color: inherit !important;
-    border: 1px solid #ccc !important;
-    border-radius: 0 !important;
-    padding: 8px 12px !important;
-    font-size: 16px !important;
-    font-weight: normal !important;
-    box-shadow: none !important;
-    animation: none !important;
-    transform: none !important;
-  }
-
-  /* Estilizar SOLO el botón principal de compra (Releasit/Shopify) */
-  /* Usamos selectores muy específicos para evitar afectar otros botones */
-  .product-form>button[type="submit"],
-  .product-form__submit:not(.quantity__button),
-  .shopify-payment-button__button,
-  .shopify-payment-button>button,
-  button.rcod-submit,
-  .rcod-form>button[type="submit"],
-  form.rcod-form button.btn,
-  [data-product-form]>button[type="submit"]:not([class*="quantity"]) {
-    background: linear-gradient(135deg, #00b894 0%, #00856f 100%) !important;
-    color: white !important;
-    border: none !important;
-    border-radius: 50px !important;
-    padding: 18px 40px !important;
-    font-size: 18px !important;
-    font-weight: 700 !important;
-    box-shadow: 0 8px 25px rgba(0, 184, 148, 0.4) !important;
-    transition: all 0.3s ease !important;
-    animation: ctaPulse 2s infinite !important;
-    width: 100%;
-    max-width: 400px;
-  }
-
-  .product-form>button[type="submit"]:hover,
-  .product-form__submit:not(.quantity__button):hover,
-  .shopify-payment-button__button:hover,
-  .shopify-payment-button>button:hover {
-    transform: translateY(-3px) scale(1.02) !important;
-    box-shadow: 0 12px 35px rgba(0, 184, 148, 0.5) !important;
-  }
-
-  @keyframes ctaPulse {
-
-    0%,
-    100% {
-      box-shadow: 0 8px 25px rgba(0, 184, 148, 0.4);
-    }
-
-    50% {
-      box-shadow: 0 8px 25px rgba(0, 184, 148, 0.4), 0 0 0 10px rgba(0, 184, 148, 0.1);
-    }
   }
 
   /* ========== CONTENEDOR PRINCIPAL ========== */
@@ -172,7 +102,7 @@
     transition: all 0.3s ease;
     cursor: pointer;
     border: none;
-    animation: pulse 2s infinite;
+    animation: apvPulse 2s infinite;
   }
 
   .apv-cta:hover {
@@ -194,7 +124,7 @@
     color: var(--white) !important;
   }
 
-  @keyframes pulse {
+  @keyframes apvPulse {
 
     0%,
     100% {
@@ -247,10 +177,10 @@
     font-size: 14px;
     margin: 0 16px 24px;
     border-radius: var(--radius);
-    animation: urgencyPulse 1.5s infinite;
+    animation: apvUrgencyPulse 1.5s infinite;
   }
 
-  @keyframes urgencyPulse {
+  @keyframes apvUrgencyPulse {
 
     0%,
     100% {
@@ -524,7 +454,7 @@
     line-height: 1.6;
   }
 
-  /* ========== CTA FINAL (Sin precios - usa Shopify) ========== */
+  /* ========== CTA FINAL ========== */
   .apv-final-cta {
     background: var(--gradient-primary);
     padding: 40px 20px;
@@ -593,7 +523,8 @@
       "Imagina corregir tu postura sin esfuerzo. El sensor inteligente detecta cuando te encorvas y vibra suavemente
       para recordarte. En semanas, tu cerebro aprende a mantener una postura perfecta."
     </p>
-    <a href="javascript:void(0)" class="apv-cta apv-scroll-to-buy">🛒 ¡QUIERO EL MÍO AHORA!</a>
+    <a href="#" class="apv-cta" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">🛒 ¡QUIERO EL MÍO
+      AHORA!</a>
   </section>
 
   <!-- TRUST BADGES -->
@@ -649,7 +580,8 @@
   </div>
 
   <!-- CTA INTERMEDIO -->
-  <a href="javascript:void(0)" class="apv-cta apv-cta-secondary apv-scroll-to-buy">💪 ¡PROTEGE TU ESPALDA HOY!</a>
+  <a href="#" class="apv-cta apv-cta-secondary"
+    onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">💪 ¡PROTEGE TU ESPALDA HOY!</a>
 
   <!-- BULLET POINTS -->
   <h2 class="apv-section-title">✨ ¿Por Qué <span>AlignPro Vibra™</span>?</h2>
@@ -779,7 +711,8 @@
   </div>
 
   <!-- CTA INTERMEDIO 2 -->
-  <a href="javascript:void(0)" class="apv-cta apv-cta-secondary apv-scroll-to-buy">🎁 ¡OBTENER DESCUENTO AHORA!</a>
+  <a href="#" class="apv-cta apv-cta-secondary"
+    onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">🎁 ¡OBTENER DESCUENTO AHORA!</a>
 
   <!-- REVIEWS -->
   <h2 class="apv-section-title">⭐ Lo Que Dicen Nuestros <span>Clientes</span></h2>
@@ -869,90 +802,6 @@
         buena y el sensor funciona perfecto. 100% recomendado."</p>
       <span class="apv-review-verified">✓ Compra verificada</span>
     </div>
-
-    <div class="apv-review-card">
-      <div class="apv-review-header">
-        <div class="apv-review-avatar">VM</div>
-        <div class="apv-review-info">
-          <h4>Valentina Muñoz Castro</h4>
-          <span>📍 Pereira, Colombia</span>
-        </div>
-      </div>
-      <div class="apv-review-stars">★★★★★</div>
-      <p class="apv-review-text">"Mi mamá sufre de dolores de espalda y le regalé este corrector. Le encantó porque la
-        vibración es suave pero efectiva. Dice que se siente más erguida y con menos dolor."</p>
-      <span class="apv-review-verified">✓ Compra verificada</span>
-    </div>
-
-    <div class="apv-review-card">
-      <div class="apv-review-header">
-        <div class="apv-review-avatar">SH</div>
-        <div class="apv-review-info">
-          <h4>Santiago Hernández Ríos</h4>
-          <span>📍 Manizales, Colombia</span>
-        </div>
-      </div>
-      <div class="apv-review-stars">★★★★★</div>
-      <p class="apv-review-text">"Trabajo en call center y paso 8 horas sentado. Este corrector inteligente cambió mi
-        vida, ya no termino el día destruido. Vale cada peso que pagué."</p>
-      <span class="apv-review-verified">✓ Compra verificada</span>
-    </div>
-
-    <div class="apv-review-card">
-      <div class="apv-review-header">
-        <div class="apv-review-avatar">NC</div>
-        <div class="apv-review-info">
-          <h4>Natalia Carolina Díaz</h4>
-          <span>📍 Ibagué, Colombia</span>
-        </div>
-      </div>
-      <div class="apv-review-stars">★★★★★</div>
-      <p class="apv-review-text">"Lo uso cuando estudio y es genial. La vibración me mantiene alerta y con buena
-        postura. Además es muy ligero, casi no se siente que lo tengo puesto."</p>
-      <span class="apv-review-verified">✓ Compra verificada</span>
-    </div>
-
-    <div class="apv-review-card">
-      <div class="apv-review-header">
-        <div class="apv-review-avatar">FM</div>
-        <div class="apv-review-info">
-          <h4>Felipe Morales Jiménez</h4>
-          <span>📍 Cúcuta, Colombia</span>
-        </div>
-      </div>
-      <div class="apv-review-stars">★★★★★</div>
-      <p class="apv-review-text">"Compré dos, uno para mí y otro para mi esposa. Los dos quedamos encantados. La
-        diferencia con los correctores normales es increíble, este realmente entrena la postura."</p>
-      <span class="apv-review-verified">✓ Compra verificada</span>
-    </div>
-
-    <div class="apv-review-card">
-      <div class="apv-review-header">
-        <div class="apv-review-avatar">IS</div>
-        <div class="apv-review-info">
-          <h4>Isabella Sánchez Ortiz</h4>
-          <span>📍 Villavicencio, Colombia</span>
-        </div>
-      </div>
-      <div class="apv-review-stars">★★★★★</div>
-      <p class="apv-review-text">"Soy profesora y paso mucho tiempo de pie o inclinada. Este corrector me ha ayudado
-        muchísimo a mantener la espalda recta. Lo recargo una vez a la semana y listo."</p>
-      <span class="apv-review-verified">✓ Compra verificada</span>
-    </div>
-
-    <div class="apv-review-card">
-      <div class="apv-review-header">
-        <div class="apv-review-avatar">AM</div>
-        <div class="apv-review-info">
-          <h4>Alejandro Mesa Gutiérrez</h4>
-          <span>📍 Santa Marta, Colombia</span>
-        </div>
-      </div>
-      <div class="apv-review-stars">★★★★★</div>
-      <p class="apv-review-text">"Al principio la vibración me parecía molesta porque vibraba mucho, pero eso significa
-        que mi postura era muy mala. Ahora casi no vibra porque ya aprendí a mantenerme recto. ¡Funciona!"</p>
-      <span class="apv-review-verified">✓ Compra verificada</span>
-    </div>
   </div>
 
   <!-- FAQ -->
@@ -1029,14 +878,14 @@
     </div>
   </div>
 
-  <!-- CTA FINAL - Sin precios duplicados -->
+  <!-- CTA FINAL -->
   <section class="apv-final-cta">
     <div class="apv-container">
       <h2>🎯 ¡No Dejes Pasar Esta Oportunidad!</h2>
       <p>Únete a miles de colombianos que ya cuidan su postura con AlignPro Vibra™. Paga al recibir, sin riesgos.</p>
 
-      <a href="javascript:void(0)" class="apv-cta apv-scroll-to-buy" style="background: white; color: #00856f;">💵
-        ¡PAGAR AL RECIBIR!</a>
+      <a href="#" class="apv-cta" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;"
+        style="background: white; color: #00856f;">⬆️ IR A COMPRAR ARRIBA</a>
 
       <div class="apv-final-includes">
         ✅ 1 Corrector AlignPro Vibra™ Original<br>
@@ -1048,58 +897,3 @@
   </section>
 
 </div>
-
-<script>
-  // Función para scroll suave al botón de Shopify
-  function scrollToShopifyButton() {
-    // Selectores para diferentes botones de Shopify y Releasit
-    const selectors = [
-      '.rcod-form',
-      '.shopify-payment-button',
-      'button[name="add"]',
-      '.product-form__submit',
-      '.product-form',
-      '#releasit-cod-form',
-      '[data-testid="Checkout-button"]'
-    ];
-
-    let targetElement = null;
-
-    for (const selector of selectors) {
-      const element = document.querySelector(selector);
-      if (element) {
-        targetElement = element;
-        break;
-      }
-    }
-
-    if (targetElement) {
-      targetElement.scrollIntoView({
-        behavior: 'smooth',
-        block: 'center'
-      });
-
-      // Highlight effect
-      targetElement.style.transition = 'box-shadow 0.3s ease';
-      targetElement.style.boxShadow = '0 0 0 4px rgba(0,184,148,0.5)';
-      setTimeout(() => {
-        targetElement.style.boxShadow = '';
-      }, 2000);
-    } else {
-      // Fallback: scroll to top where price usually is
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  }
-
-  // Conectar todos los CTAs al scroll
-  document.addEventListener('DOMContentLoaded', function () {
-    const ctaButtons = document.querySelectorAll('.apv-scroll-to-buy');
-
-    ctaButtons.forEach(function (btn) {
-      btn.addEventListener('click', function (e) {
-        e.preventDefault();
-        scrollToShopifyButton();
-      });
-    });
-  });
-</script>
